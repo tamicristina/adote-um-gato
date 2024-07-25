@@ -10,7 +10,7 @@ import { provideHttpClient } from '@angular/common/http';
 import { CatsData } from '../interfaces/cat.interface';
 import { environment } from '../../environments/environment';
 
-fdescribe('CatApiService', () => {
+describe('CatApiService', () => {
   let service: CatApiService;
   let httpMock: HttpTestingController;
 
