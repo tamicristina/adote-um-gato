@@ -1,6 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
+import { CatsData } from '../interfaces/cat.interface';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -8,7 +10,16 @@ import { Observable, of } from 'rxjs';
 export class CatApiService {
   constructor(private http: HttpClient) {}
 
-  getCats() {
-    // TODO: add observable and request;
+  getCatImagesWithBreedData(): Observable<CatsData[]> {
+    const headers = new HttpHeaders({
+      'x-api-key': environment.apiUrl,
+    });
+
+    const params = new HttpParams().set('limit', '10').set('has_breeds', '1');
+
+    return this.http.get<CatsData[]>(environment.apiUrl, {
+      headers,
+      params,
+    });
   }
 }
