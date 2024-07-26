@@ -1,4 +1,4 @@
-import { NgFor, NgIf } from '@angular/common';
+import { NgClass, NgFor, NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { CatsData } from '../interfaces/cat.interface';
 import { CatApiService } from '../services/cat-api.service';
@@ -6,7 +6,7 @@ import { CatApiService } from '../services/cat-api.service';
 @Component({
   selector: 'app-gallery',
   standalone: true,
-  imports: [NgFor, NgIf],
+  imports: [NgFor, NgIf, NgClass],
   templateUrl: './gallery.component.html',
   styleUrl: './gallery.component.scss',
 })
@@ -30,5 +30,10 @@ export class GalleryComponent implements OnInit {
         console.error(err);
       },
     });
+  }
+
+  getRandomGridClass(): string {
+    const classes = ['wide', 'tall', 'big'];
+    return classes[Math.floor(Math.random() * classes.length)];
   }
 }
