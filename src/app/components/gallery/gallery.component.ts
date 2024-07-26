@@ -1,7 +1,9 @@
 import { NgClass, NgFor, NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { CatsData } from '../interfaces/cat.interface';
-import { CatApiService } from '../services/cat-api.service';
+import { CatsData } from '../../interfaces/cat.interface';
+import { CatApiService } from '../../services/cat-api.service';
+import { MatDialog } from '@angular/material/dialog';
+import { CatDetailsModalComponent } from '../cat-details-modal/cat-details-modal.component';
 
 @Component({
   selector: 'app-gallery',
@@ -14,7 +16,7 @@ export class GalleryComponent implements OnInit {
   catsData: CatsData[] = [];
   error: string | null = null;
 
-  constructor(private catApiService: CatApiService) {}
+  constructor(private catApiService: CatApiService, public dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.loadCatImages();
@@ -35,5 +37,11 @@ export class GalleryComponent implements OnInit {
   getRandomGridClass(): string {
     const classes = ['wide', 'tall', 'big'];
     return classes[Math.floor(Math.random() * classes.length)];
+  }
+
+  openDialog(): void {
+    this.dialog.open(CatDetailsModalComponent, {
+      width: '400px',
+    });
   }
 }
