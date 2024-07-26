@@ -12,10 +12,10 @@ export class CatApiService {
 
   getCatImagesWithBreedData(): Observable<CatsData[]> {
     const headers = new HttpHeaders({
-      'x-api-key': environment.apiUrl,
+      'x-api-key': environment.apiKey,
     });
 
-    const params = new HttpParams().set('limit', '10').set('has_breeds', '1');
+    const params = new HttpParams().set('limit', '12').set('has_breeds', '1');
 
     return this.http.get<CatsData[]>(environment.apiUrl, {
       headers,

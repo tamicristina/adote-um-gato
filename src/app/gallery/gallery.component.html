@@ -1,0 +1,10 @@
+<div class="gallery-wrapper">
+  <div class="grid-wrapper">
+    <div
+      *ngFor="let image of catsData; let i = index"
+      [ngClass]="getRandomGridClass()"
+    >
+      <img [src]="image.url" alt="Cat image" />
+    </div>
+  </div>
+</div>
