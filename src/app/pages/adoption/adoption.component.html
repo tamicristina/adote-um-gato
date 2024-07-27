@@ -1,0 +1,6 @@
+<div *ngIf="message; else formTemplate">
+  <p>{{ message }}</p>
+</div>
+<ng-template #formTemplate>
+  <app-form title="Quero Adotar" (formSubmitted)="onFormSubmitted()"></app-form>
+</ng-template>
