@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgIf } from '@angular/common';
-import { FormComponent } from '../../components/form/form.component';
+import { FormComponent } from '../../webcomponents/form/form.component';
 
 @Component({
   selector: 'app-adoption',
