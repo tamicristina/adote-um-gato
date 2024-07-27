@@ -1,9 +1,4 @@
-import {
-  ApplicationRef,
-  createComponent,
-  EnvironmentInjector,
-  Injectable,
-} from '@angular/core';
+import { Injectable } from '@angular/core';
 import { NgElement, WithProperties } from '@angular/elements';
 import { FormComponent } from './form.component';
 
