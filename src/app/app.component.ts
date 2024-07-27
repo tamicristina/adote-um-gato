@@ -1,8 +1,8 @@
 import { Component, Injector } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { FormComponent } from './components/form/form.component';
+import { FormComponent } from './webcomponents/form/form.component';
 import { createCustomElement } from '@angular/elements';
-import { FormService } from './components/form/form.service';
+import { FormService } from './webcomponents/form/form.service';
 
 @Component({
   selector: 'app-root',
