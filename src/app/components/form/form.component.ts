@@ -1,10 +1,10 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-form',
   standalone: true,
-  imports: [NgForm],
+  imports: [FormsModule],
   templateUrl: './form.component.html',
   styleUrl: './form.component.scss',
 })
