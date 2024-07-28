@@ -16,9 +16,9 @@ export class AppComponent {
   title = 'adote-um-gato';
 
   constructor(injector: Injector) {
-    const FormElement = createCustomElement(FormComponent, {
-      injector,
-    });
-    customElements.define('form-element', FormElement);
+    if (!customElements.get('form-element')) {
+      const FormElement = createCustomElement(FormComponent, { injector });
+      customElements.define('form-element', FormElement);
+    }
   }
 }

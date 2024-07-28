@@ -47,8 +47,6 @@ describe('GalleryComponent', () => {
     ];
 
     fixture.detectChanges();
-    tick();
-    fixture.detectChanges();
   });
 
   it('should create', () => {
