@@ -4,10 +4,36 @@
   padding: 0;
 }
 
+.error-section {
+  .error-content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+    img {
+      width: 300px;
+    }
+    span {
+      text-align: center;
+      h1 {
+        font-size: 32px;
+      }
+      .error-texts {
+        margin: 12px 0;
+        font-size: 20px;
+      }
+    }
+  }
+}
+
 .gallery-wrapper {
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
+
+  .mat-mdc-progress-spinner {
+    --mdc-circular-progress-active-indicator-color: #ff6201;
+  }
 }
 
 img {
@@ -36,17 +62,4 @@ img {
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   grid-auto-rows: 120px;
   grid-auto-flow: dense;
-}
-
-.grid-wrapper .wide {
-  grid-column: span 1;
-}
-
-.grid-wrapper .tall {
-  grid-row: span 2;
-}
-
-.grid-wrapper .big {
-  grid-column: span 2;
-  grid-row: span 2;
 }

@@ -8,6 +8,7 @@ import { provideHttpClient } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { GalleryComponent } from './gallery.component';
 import { By } from '@angular/platform-browser';
+import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
 
 describe('GalleryComponent', () => {
   let component: GalleryComponent;
@@ -15,7 +16,13 @@ describe('GalleryComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [GalleryComponent],
+      imports: [
+        GalleryComponent,
+        LoggerModule.forRoot({
+          level: NgxLoggerLevel.DEBUG,
+          serverLogLevel: NgxLoggerLevel.ERROR,
+        }),
+      ],
       providers: [provideHttpClient(), provideHttpClientTesting()],
     }).compileComponents();
 
@@ -96,6 +103,18 @@ describe('GalleryComponent', () => {
       ).nativeElement;
 
       expect(galleryWrapper.querySelector('mat-spinner')).toBeFalsy();
+    });
+  });
+
+  describe('when an error happens', () => {
+    it('should display the error section ', () => {
+      component.error = true;
+      fixture.detectChanges();
+
+      const gridWrapper: HTMLElement = fixture.debugElement.query(
+        By.css('.error-section')
+      ).nativeElement;
+      expect(gridWrapper).toBeTruthy();
     });
   });
 });
