@@ -73,4 +73,29 @@ describe('GalleryComponent', () => {
     expect(imageElements[1].src).toContain('https://example.com/cat2.jpg');
     expect(imageElements[2].src).toContain('https://example.com/cat3.jpg');
   }));
+
+  describe('When the component is loading', () => {
+    it('the spinner should be displayed', () => {
+      component.isLoading = true;
+      fixture.detectChanges();
+
+      const galleryWrapper: HTMLElement = fixture.debugElement.query(
+        By.css('.gallery-wrapper')
+      ).nativeElement;
+
+      expect(galleryWrapper.querySelector('mat-spinner')).toBeTruthy();
+    });
+  });
+  describe('When the component is not loading', () => {
+    it('the spinner should be displayed', () => {
+      component.isLoading = false;
+      fixture.detectChanges();
+
+      const galleryWrapper: HTMLElement = fixture.debugElement.query(
+        By.css('.gallery-wrapper')
+      ).nativeElement;
+
+      expect(galleryWrapper.querySelector('mat-spinner')).toBeFalsy();
+    });
+  });
 });
