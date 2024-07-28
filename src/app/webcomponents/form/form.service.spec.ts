@@ -2,15 +2,18 @@ import { TestBed } from '@angular/core/testing';
 import { FormService } from './form.service';
 import { FormComponent } from './form.component';
 import { NgElement, WithProperties } from '@angular/elements';
+import { Injector } from '@angular/core';
 
 describe('FormService', () => {
   let service: FormService;
+  let injector: Injector;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [FormService],
     });
     service = TestBed.inject(FormService);
+    injector = TestBed.inject(Injector);
   });
 
   it('should be created', () => {
