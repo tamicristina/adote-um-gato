@@ -1,11 +1,11 @@
 <div class="gallery-wrapper">
   <div class="grid-wrapper">
-    <div
-      *ngFor="let image of catsData; let i = index"
-      [ngClass]="getRandomGridClass()"
-    >
+    <div *ngIf="isLoading" class="loading-container">
+      <mat-spinner mode="indeterminate"> </mat-spinner>
+    </div>
+    <div *ngFor="let image of catsData; let i = index">
       <img [src]="image.url" alt="Cat image" />
     </div>
   </div>
-  <button (click)="showForm()">Open Form</button>
+  <!-- <button (click)="showForm()">Open Form</button> -->
 </div>

@@ -2,21 +2,22 @@ import { NgClass, NgFor, NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { CatsData } from '../../interfaces/cat.interface';
 import { CatApiService } from '../../services/cat-api.service';
-import { MatDialog } from '@angular/material/dialog';
-import { CatDetailsModalComponent } from '../cat-details-modal/cat-details-modal.component';
+import { Router } from '@angular/router';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-gallery',
   standalone: true,
-  imports: [NgFor, NgIf, NgClass],
+  imports: [NgFor, NgIf, NgClass, MatProgressSpinnerModule],
   templateUrl: './gallery.component.html',
   styleUrl: './gallery.component.scss',
 })
 export class GalleryComponent implements OnInit {
   catsData: CatsData[] = [];
   error: string | null = null;
+  isLoading = true;
 
-  constructor(private catApiService: CatApiService, public dialog: MatDialog) {}
+  constructor(private catApiService: CatApiService, private router: Router) {}
 
   ngOnInit(): void {
     this.loadCatImages();
@@ -26,22 +27,17 @@ export class GalleryComponent implements OnInit {
     this.catApiService.getCatImagesWithBreedData().subscribe({
       next: (data) => {
         this.catsData = data;
+        this.isLoading = false;
       },
       error: (err) => {
+        this.isLoading = false;
         this.error = 'Failed to load cat images';
         console.error(err);
       },
     });
   }
 
-  getRandomGridClass(): string {
-    const classes = ['wide', 'tall', 'big'];
-    return classes[Math.floor(Math.random() * classes.length)];
-  }
-
-  openDialog(): void {
-    this.dialog.open(CatDetailsModalComponent, {
-      width: '400px',
-    });
+  showForm() {
+    this.router.navigate(['/adoption']);
   }
 }
