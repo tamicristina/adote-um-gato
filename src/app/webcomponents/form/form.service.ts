@@ -6,11 +6,12 @@ import { FormComponent } from './form.component';
 export class FormService {
   constructor() {}
 
-  showAsElement(title: string) {
+  showAsElement(title: string, buttonLabel: string) {
     const formEl: NgElement & WithProperties<FormComponent> =
       document.createElement('form-element') as any;
 
     formEl.title = title;
+    formEl.buttonLabel = buttonLabel;
 
     document.body.appendChild(formEl);
   }

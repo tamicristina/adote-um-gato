@@ -4,6 +4,7 @@
   padding: 1em;
   background: #f9f9f9;
   border-radius: 8px;
+  margin-top: 60px;
 
   h2 {
     margin-bottom: 1em;
@@ -31,12 +32,13 @@
       padding: 0.5em;
       border: none;
       border-radius: 4px;
-      background: #007bff;
+      background: #ff6201;
       color: white;
       cursor: pointer;
+      font-size: 18px;
 
       &:hover {
-        background: #0056b3;
+        background: #ff6201;
       }
     }
   }

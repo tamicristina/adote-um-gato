@@ -2,5 +2,10 @@
   <p>{{ message }}</p>
 </div>
 <ng-template #formTemplate>
-  <app-form title="Quero Adotar" (formSubmitted)="onFormSubmitted()"></app-form>
+  <app-form
+    title="Quero Adotar"
+    buttonLabel="Enviar"
+    (formSubmitted)="onFormSubmitted()"
+    catName="{{ selectedCatName }}"
+  ></app-form>
 </ng-template>

@@ -7,9 +7,12 @@
     <label for="email">Email:</label>
     <input type="email" id="email" name="email" required ngModel />
 
+    <label for="pet">Pet escolhido:</label>
+    <input type="text" id="pet" name="pet" required [(ngModel)]="catName" />
+
     <label for="message">Message:</label>
     <textarea id="message" name="message" rows="4" required ngModel></textarea>
 
-    <button type="submit">Submit</button>
+    <button type="submit">{{ buttonLabel }}</button>
   </form>
 </div>

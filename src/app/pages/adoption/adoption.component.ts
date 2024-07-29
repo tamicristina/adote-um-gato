@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgIf } from '@angular/common';
 import { FormComponent } from '../../webcomponents/form/form.component';
 
@@ -10,10 +10,17 @@ import { FormComponent } from '../../webcomponents/form/form.component';
   templateUrl: './adoption.component.html',
   styleUrl: './adoption.component.scss',
 })
-export class AdoptionComponent {
+export class AdoptionComponent implements OnInit {
   message = '';
+  selectedCatName: string | null = null;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private route: ActivatedRoute) {}
+
+  ngOnInit() {
+    this.route.queryParams.subscribe((params) => {
+      this.selectedCatName = params['catName'] || 'Desconhecido';
+    });
+  }
 
   onFormSubmitted() {
     this.message = 'Em breve entraremos em contato!';
