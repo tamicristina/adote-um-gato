@@ -19,22 +19,13 @@
       </span>
     </div>
   </section>
+  <div *ngIf="isLoading" class="loading-container">
+    <mat-spinner mode="indeterminate"> </mat-spinner>
+  </div>
   <div class="grid-wrapper">
-    <div *ngIf="isLoading" class="loading-container">
-      <mat-spinner mode="indeterminate"> </mat-spinner>
-    </div>
-
     <div *ngFor="let image of catsData; let i = index">
       <img [src]="image.url" alt="Cat image" />
     </div>
-    <!-- <img
-      src="https://www.petz.com.br/blog/wp-content/uploads/2019/07/vida-de-gato.jpg"
-      alt="Cat image"
-    />
-    <img
-      src="https://www.petz.com.br/blog/wp-content/uploads/2019/07/vida-de-gato.jpg"
-      alt="Cat image"
-    /> -->
   </div>
-  <button (click)="showForm()">Open Form</button>
+  <!-- <button (click)="showForm()">Open Form</button> -->
 </div>

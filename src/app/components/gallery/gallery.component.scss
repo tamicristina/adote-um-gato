@@ -30,6 +30,14 @@
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
+  flex-direction: column;
+  height: 100%;
+
+  .loading-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+  }
 
   .mat-mdc-progress-spinner {
     --mdc-circular-progress-active-indicator-color: #ff6201;
