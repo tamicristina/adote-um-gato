@@ -28,11 +28,20 @@
   <main class="grid-wrapper" role="main">
     <div *ngFor="let cat of catsData; let i = index" class="polaroid">
       <figure>
-        <img [src]="cat.url" alt="Imagens de gatos disponíveis para adoção" />
+        <img
+          [src]="cat.url"
+          alt="Imagens de gatos disponíveis para adoção"
+          class="cat-image"
+        />
       </figure>
       <div class="description">
-        <figcaption>
-          <p class="cat-breed">Raça: {{ cat.breeds[0].name }}</p>
+        <figcaption *ngIf="cat.breeds && cat.breeds[0]">
+          <p class="cat-breed">
+            Raça:
+            {{
+              cat.breeds && cat.breeds[0] ? cat.breeds[0].name : "Desconhecida"
+            }}
+          </p>
           <p>{{ cat.details }}</p>
         </figcaption>
         <span class="button-container">
@@ -49,5 +58,4 @@
       </div>
     </div>
   </main>
-  <!-- <button (click)="showForm()">Open Form</button> -->
 </div>
