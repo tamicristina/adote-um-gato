@@ -4,12 +4,13 @@ import { FormComponent } from './webcomponents/form/form.component';
 import { createCustomElement } from '@angular/elements';
 import { FormService } from './webcomponents/form/form.service';
 import { NGXLogger } from 'ngx-logger';
+import { HeaderComponent } from './components/header/header.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   providers: [FormService],
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, HeaderComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
