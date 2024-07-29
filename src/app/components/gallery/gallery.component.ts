@@ -28,7 +28,7 @@ export class GalleryComponent implements OnInit {
     'Amigo de todos, ele se dá bem com outros animais e adora companhia!',
     'Este gato é um verdadeiro aventureiro e adora se esconder para brincar!',
     'Este gato é um verdadeiro aventureiro e adora se esconder para brincar!',
-    'Esse felino adora uma boa soneca e vai te acompanhar em todos os momentos relaxantes.',
+    'Adora uma boa soneca e vai te acompanhar em todos os momentos relaxantes.',
     'Adora brincar com bolinhas e correr pela casa.',
     'Carinhoso e sempre procura um colo para dormir.',
     'Curioso e explora todos os cantinhos da casa.',

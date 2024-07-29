@@ -32,9 +32,14 @@
       </figure>
       <div class="description">
         <figcaption>
-          <p>Raça: {{ cat.breeds[0].name }}</p>
+          <p class="cat-breed">Raça: {{ cat.breeds[0].name }}</p>
           <p>{{ cat.details }}</p>
         </figcaption>
+        <span class="button-container">
+          <button (click)="showForm()" class="adoption-button">
+            Quero adotar
+          </button>
+        </span>
         <figure>
           <img
             src="assets/images/black_paw.svg"

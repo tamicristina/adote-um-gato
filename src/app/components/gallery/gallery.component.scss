@@ -77,15 +77,21 @@ img {
   row-gap: 60px; /* Espaçamento vertical entre as linhas */
 }
 
-.grid-wrapper > div {
+.polaroid {
   display: flex;
+  flex-direction: column;
+  background: white;
+  border: 1px solid #ddd;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  height: 350px;
   justify-content: space-between;
-  align-items: center;
 }
 
 .grid-wrapper > div > figure {
   width: 100%;
-  height: 70%;
+  height: 60%;
 }
 
 .grid-wrapper > div > figure > img {
@@ -98,10 +104,34 @@ img {
   width: 100%;
   display: flex;
   justify-content: flex-end;
+  margin-bottom: 2px;
+}
+
+.cat-breed {
+  margin: 5px 0px;
+  font-weight: bold;
+}
+
+.button-container {
+  margin-top: 10px;
+}
+
+.adoption-button {
+  border: none;
+  background-color: inherit;
+  font-size: 14px;
+  margin-top: 4px;
+  cursor: pointer;
+  color: #ff6201;
 }
 
 .description > figure > img {
   width: 20px;
+}
+
+.description {
+  text-align: center;
+  font-size: 14px;
 }
 
 .polaroid {
@@ -113,9 +143,4 @@ img {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   height: 300px;
-}
-
-.description {
-  text-align: center;
-  font-size: 14px;
 }
