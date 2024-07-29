@@ -44,4 +44,5 @@ export interface CatsData {
   url: string;
   width: number;
   height: number;
+  details?: string;
 }
