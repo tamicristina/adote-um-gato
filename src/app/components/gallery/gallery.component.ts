@@ -15,6 +15,7 @@ import { NGXLogger } from 'ngx-logger';
 })
 export class GalleryComponent implements OnInit {
   catsData: CatsData[] = [];
+  selectedCatName: string | null = null;
   error = false;
   isLoading = true;
 
@@ -64,7 +65,8 @@ export class GalleryComponent implements OnInit {
     });
   }
 
-  showForm() {
-    this.router.navigate(['/adoption']);
+  showForm(catName: string) {
+    this.selectedCatName = catName;
+    this.router.navigate(['/adoption'], { queryParams: { catName } });
   }
 }
