@@ -28,11 +28,10 @@ describe('HeaderComponent', () => {
     const pElements = headerElement.getElementsByTagName('p');
     const h1Element = headerElement.getElementsByTagName('h1')[0];
 
-    expect(pElements.length).toBe(2);
-    expect(pElements[0].textContent).toContain('Galeria de Fotos');
-    expect(h1Element.textContent).toContain('Adote um gato');
-    expect(pElements[1].textContent).toContain(
-      'Veja fotos incríveis de gatos com detalhes sobre suas raças.'
+    expect(pElements.length).toBe(1);
+    expect(pElements[0].textContent).toContain(
+      'Descubra a beleza e a personalidade única de cada gatinho à espera de um lar amoroso.'
     );
+    expect(h1Element.textContent).toContain('Adote um gato');
   });
 });

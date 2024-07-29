@@ -87,7 +87,7 @@ describe('CatApiService', () => {
     });
 
     const mockedApiRequest = httpMock.expectOne(
-      `${environment.apiUrl}?limit=10&has_breeds=1`
+      `${environment.apiUrl}?limit=15&has_breeds=1`
     );
     expect(mockedApiRequest.request.method).toBe('GET');
     mockedApiRequest.flush(mockResponse);
@@ -103,7 +103,7 @@ describe('CatApiService', () => {
     );
 
     const mockedApiRequest = httpMock.expectOne(
-      `${environment.apiUrl}?limit=10&has_breeds=1`
+      `${environment.apiUrl}?limit=15&has_breeds=1`
     );
 
     mockedApiRequest.flush('Failed to load cat images', {

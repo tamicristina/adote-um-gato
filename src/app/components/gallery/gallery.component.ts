@@ -18,6 +18,24 @@ export class GalleryComponent implements OnInit {
   error = false;
   isLoading = true;
 
+  catDetais: string[] = [
+    'Este gatinho é super carinhoso e adora um colo quentinho!',
+    'Um amigo brincalhão que vai fazer você rir com suas travessuras!',
+    'Sempre curioso, esse gato gosta de explorar todos os cantinhos da casa!',
+    'Calmo e gentil, ele adora receber carinho e fazer festinhas.',
+    'Esse gatinho é muito esperto e aprende truques rapidinho!',
+    'Esse gatinho é muito esperto e aprende truques rapidinho!',
+    'Amigo de todos, ele se dá bem com outros animais e adora companhia!',
+    'Este gato é um verdadeiro aventureiro e adora se esconder para brincar!',
+    'Este gato é um verdadeiro aventureiro e adora se esconder para brincar!',
+    'Adora uma boa soneca e vai te acompanhar em todos os momentos relaxantes.',
+    'Adora brincar com bolinhas e correr pela casa.',
+    'Carinhoso e sempre procura um colo para dormir.',
+    'Curioso e explora todos os cantinhos da casa.',
+    'Travesso e adora fazer pequenas travessuras.',
+    'Tranquilo e gosta de relaxar ao sol.',
+  ];
+
   constructor(
     private catApiService: CatApiService,
     private router: Router,
@@ -33,6 +51,10 @@ export class GalleryComponent implements OnInit {
       next: (data) => {
         this.catsData = data;
         this.isLoading = false;
+
+        this.catsData.forEach((cat, index) => {
+          cat.details = this.catDetais[index] || 'Detalhes não disponível';
+        });
       },
       error: (err) => {
         this.isLoading = false;

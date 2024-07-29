@@ -19,22 +19,43 @@
       </span>
     </div>
   </section>
-  <div class="grid-wrapper">
-    <div *ngIf="isLoading" class="loading-container">
-      <mat-spinner mode="indeterminate"> </mat-spinner>
-    </div>
-
-    <div *ngFor="let image of catsData; let i = index">
-      <img [src]="image.url" alt="Cat image" />
-    </div>
-    <!-- <img
-      src="https://www.petz.com.br/blog/wp-content/uploads/2019/07/vida-de-gato.jpg"
-      alt="Cat image"
-    />
-    <img
-      src="https://www.petz.com.br/blog/wp-content/uploads/2019/07/vida-de-gato.jpg"
-      alt="Cat image"
-    /> -->
+  <div *ngIf="isLoading" class="loading-container" aria-busy="true">
+    <mat-spinner mode="indeterminate"> </mat-spinner>
+    <span id="loading-description" class="visually-hidden"
+      >Carregando conteúdo, por favor aguarde...</span
+    >
   </div>
-  <button (click)="showForm()">Open Form</button>
+  <main class="grid-wrapper" role="main">
+    <div *ngFor="let cat of catsData; let i = index" class="polaroid">
+      <figure>
+        <img
+          [src]="cat.url"
+          alt="Imagens de gatos disponíveis para adoção"
+          class="cat-image"
+        />
+      </figure>
+      <div class="description">
+        <figcaption *ngIf="cat.breeds && cat.breeds[0]">
+          <p class="cat-breed">
+            Raça:
+            {{
+              cat.breeds && cat.breeds[0] ? cat.breeds[0].name : "Desconhecida"
+            }}
+          </p>
+          <p>{{ cat.details }}</p>
+        </figcaption>
+        <span class="button-container">
+          <button (click)="showForm()" class="adoption-button">
+            Quero adotar
+          </button>
+        </span>
+        <figure>
+          <img
+            src="assets/images/black_paw.svg"
+            alt="Imagens de gatos disponíveis para adoção"
+          />
+        </figure>
+      </div>
+    </div>
+  </main>
 </div>
