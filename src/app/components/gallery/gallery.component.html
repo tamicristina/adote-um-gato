@@ -19,13 +19,30 @@
       </span>
     </div>
   </section>
-  <div *ngIf="isLoading" class="loading-container">
+  <div *ngIf="isLoading" class="loading-container" aria-busy="true">
     <mat-spinner mode="indeterminate"> </mat-spinner>
+    <span id="loading-description" class="visually-hidden"
+      >Carregando conteúdo, por favor aguarde...</span
+    >
   </div>
-  <div class="grid-wrapper">
-    <div *ngFor="let image of catsData; let i = index">
-      <img [src]="image.url" alt="Cat image" />
+  <main class="grid-wrapper" role="main">
+    <div *ngFor="let cat of catsData; let i = index" class="polaroid">
+      <figure>
+        <img [src]="cat.url" alt="Imagens de gatos disponíveis para adoção" />
+      </figure>
+      <div class="description">
+        <figcaption>
+          <p>Raça: {{ cat.breeds[0].name }}</p>
+          <p>{{ cat.details }}</p>
+        </figcaption>
+        <figure>
+          <img
+            src="assets/images/black_paw.svg"
+            alt="Imagens de gatos disponíveis para adoção"
+          />
+        </figure>
+      </div>
     </div>
-  </div>
+  </main>
   <!-- <button (click)="showForm()">Open Form</button> -->
 </div>
