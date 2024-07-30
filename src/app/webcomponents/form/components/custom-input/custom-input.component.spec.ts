@@ -2,9 +2,9 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CustomInputComponent } from './custom-input.component';
 import { By } from '@angular/platform-browser';
-import { FormControl, Validators } from '@angular/forms';
+import { Validators } from '@angular/forms';
 
-fdescribe('CustomInputComponent', () => {
+describe('CustomInputComponent', () => {
   let component: CustomInputComponent;
   let fixture: ComponentFixture<CustomInputComponent>;
 
