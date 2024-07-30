@@ -5,7 +5,30 @@
     buttonLabel="Enviar"
     (formSubmitted)="onFormSubmitted()"
     catName="{{ selectedCatName }}"
-  ></app-form>
+  >
+    <app-custom-input
+      label="Nome:"
+      [type]="'text'"
+      formControlName="name"
+    ></app-custom-input>
+    <app-custom-input
+      label="E-mail:"
+      [type]="'email'"
+      formControlName="email"
+    ></app-custom-input>
+    <app-custom-input
+      label="Pet Escolhido:"
+      [type]="'text'"
+      formControlName="pet"
+      [value]="selectedCatName"
+    ></app-custom-input>
+    <app-custom-input
+      label="Mensagem:"
+      [type]="'text'"
+      formControlName="pet"
+      [isTextarea]="true"
+    ></app-custom-input>
+  </app-form>
 </ng-template>
 
 <div class="contact-feedback" *ngIf="showContactFeedback">
