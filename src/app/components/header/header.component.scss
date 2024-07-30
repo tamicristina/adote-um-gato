@@ -1,6 +1,6 @@
 .header {
   text-align: center;
-  padding: 20px;
+  padding: 0 20px;
   font-family: "Zain", sans-serif;
   font-weight: 300;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
@@ -59,6 +59,13 @@
   }
 
   .header p {
-    font-size: 16px;
+    font-size: 18px;
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 768px) {
+  .header p {
+    font-size: 24px;
+    flex-wrap: wrap;
   }
 }

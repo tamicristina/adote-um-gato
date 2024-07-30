@@ -1,0 +1,27 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+router-outlet {
+  flex: 1;
+}
+
+.content {
+  flex: 1;
+  margin-bottom: 70px;
+}
+
+app-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  bottom: 0;
+  height: 80px;
+  width: 100%;
+  box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.1);
+  border: grey;
+  padding: 10px;
+}
