@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import { NgElement, WithProperties } from '@angular/elements';
-import { FormComponent } from './form.component';
-import { CustomInputComponent } from './components/custom-input/custom-input.component';
+import { CustomInputComponent } from './custom-input.component';
 
 @Injectable()
-export class FormService {
+export class InputService {
   constructor() {}
 
-  showInputAsElement(
+  showAsElement(
     label: string,
     type: string,
     isTextarea: boolean,
@@ -20,19 +19,9 @@ export class FormService {
     inputEl.label = label;
     inputEl.type = type;
     inputEl.isTextarea = isTextarea;
-    inputEl.value = value;
+    // inputEl.value = value;
     inputEl.formControlName = formControlName;
 
     document.body.appendChild(inputEl);
-  }
-
-  showAsElement(title: string, buttonLabel: string) {
-    const formEl: NgElement & WithProperties<FormComponent> =
-      document.createElement('form-element') as any;
-
-    formEl.title = title;
-    formEl.buttonLabel = buttonLabel;
-
-    document.body.appendChild(formEl);
   }
 }

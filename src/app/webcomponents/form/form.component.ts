@@ -3,29 +3,54 @@ import {
   Component,
   EventEmitter,
   Input,
+  OnInit,
   Output,
-  ViewChild,
+  ContentChildren,
+  QueryList,
 } from '@angular/core';
-import { FormsModule, NgForm } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
+import { CustomInputComponent } from './components/custom-input/custom-input.component';
 
 @Component({
   selector: 'app-form',
   standalone: true,
-  imports: [FormsModule, NgIf],
+  imports: [FormsModule, NgIf, CustomInputComponent, ReactiveFormsModule],
   templateUrl: './form.component.html',
   styleUrl: './form.component.scss',
 })
-export class FormComponent {
+export class FormComponent implements OnInit {
+  form: FormGroup = new FormGroup({
+    label: new FormControl(''),
+  });
+
+  constructor(private fb: FormBuilder) {}
   @Output() formSubmitted = new EventEmitter<void>();
   @Input() title!: string;
   @Input() buttonLabel!: string;
   @Input() catName!: string;
+  @ContentChildren(CustomInputComponent)
+  customInputs!: QueryList<CustomInputComponent>;
 
-  @ViewChild('f') form!: NgForm;
+  ngOnInit() {
+    this.form = this.fb.group(
+      {
+        name: [''],
+        email: [''],
+        pet: [''],
+        mensagem: [''],
+      },
+      { validators: Validators.compose([Validators.required]) }
+    );
+  }
 
-  onSubmit(form: NgForm) {
-    if (form.valid) {
-      this.formSubmitted.emit();
-    }
+  onSubmit() {
+    this.formSubmitted.emit();
   }
 }
