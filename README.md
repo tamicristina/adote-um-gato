@@ -1,27 +1,47 @@
 # AdoteUmGato
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.2.
+![Adote um gato](./src/assets/images/logo.png)
 
-## Development server
+## 📖 Sobre
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+O projeto adote um gato tem como objetivo facilitar a adoção de gatos, proporcionando uma plataforma onde os usuários possam visualizar fotos de gatos disponíveis para adoção. Com uma interface intuitiva e agradável, os usuários poderão ver detalhes dos gatos, incluindo suas raças e descrições breves, e poderão entrar em contato demonstrando o interesse na adoção.
 
-## Code scaffolding
+## Documentação
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- [Como o projeto está estruturado?](./STRUCTURE.md)
 
-## Build
+##Requisitos para rodar o projeto
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Setup de ambiente:
 
-## Running unit tests
+- [Node JS](https://nodejs.org/pt) `>= 18.19`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- [Npm 9.8.0](https://docs.npmjs.com/)
 
-## Running end-to-end tests
+## ⚙️ Como Executar
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Para executar a aplicação localmente, siga os passos abaixo:
 
-## Further help
+1. Clone este repositório:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+```bash
+  git clone git@github.com:tamicristina/adote-um-gato.git
+  cd adote-um-gato.git
+
+```
+
+2. Instale as dependências
+
+```bash
+  npm install
+```
+
+3. Inicie a aplicação
+
+```bash
+  ng serve
+```
+
+## Executando testes unitários
+
+Execute `ng test` para executar os testes unitários via [Karma](https://karma-runner.github.io).
