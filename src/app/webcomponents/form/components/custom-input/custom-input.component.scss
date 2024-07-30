@@ -1,0 +1,24 @@
+label {
+  margin-bottom: 0.5em;
+  font-weight: bold;
+}
+
+input,
+textarea {
+  margin-bottom: 1em;
+  padding: 0.5em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 1rem;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.text-danger {
+  color: red;
+  font-size: 0.875em;
+}

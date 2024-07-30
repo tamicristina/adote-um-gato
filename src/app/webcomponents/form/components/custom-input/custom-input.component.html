@@ -1,0 +1,24 @@
+<div class="form-group">
+  <label [for]="label">{{ label }}</label>
+  <ng-container *ngIf="!isTextarea; else textarea">
+    <input
+      [type]="type"
+      class="form-control"
+      [formControl]="control"
+      [formControl]="control"
+      [id]="label"
+    />
+  </ng-container>
+  <ng-template #textarea>
+    <textarea
+      class="form-control"
+      [formControl]="control"
+      [id]="label"
+      rows="10"
+      placeholder="Digite sua mensagem aqui..."
+    ></textarea>
+  </ng-template>
+  <div *ngIf="control.invalid && control.touched" class="text-danger">
+    Este campo é obrigatório
+  </div>
+</div>
