@@ -1,8 +1,8 @@
 import { TestBed } from '@angular/core/testing';
 import { NgElement, WithProperties } from '@angular/elements';
-import { FormComponent } from './form.component';
-import { CustomInputComponent } from './components/custom-input/custom-input.component';
+import { CustomInputComponent } from './custom-input.component';
 import { InputService } from './input.service';
+import { FormComponent } from '../../form.component';
 
 describe('InputService', () => {
   let service: InputService;

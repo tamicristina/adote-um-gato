@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { NgElement, WithProperties } from '@angular/elements';
-import { FormComponent } from './form.component';
-import { CustomInputComponent } from './components/custom-input/custom-input.component';
+import { CustomInputComponent } from './custom-input.component';
 
 @Injectable()
 export class InputService {
@@ -20,7 +19,7 @@ export class InputService {
     inputEl.label = label;
     inputEl.type = type;
     inputEl.isTextarea = isTextarea;
-    inputEl.value = value;
+    // inputEl.value = value;
     inputEl.formControlName = formControlName;
 
     document.body.appendChild(inputEl);
