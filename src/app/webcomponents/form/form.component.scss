@@ -28,6 +28,20 @@
       padding: 0.5em;
       border: 1px solid #ccc;
       border-radius: 4px;
+      &:focus {
+        outline: none;
+      }
+    }
+
+    input:invalid {
+      border: 1px solid red;
+    }
+
+    .error {
+      color: red;
+      font-size: 0.875em;
+      margin-top: 0.5em;
+      margin-bottom: 10px;
     }
 
     button {

@@ -1,10 +1,17 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { NgIf } from '@angular/common';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-form',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, NgIf],
   templateUrl: './form.component.html',
   styleUrl: './form.component.scss',
 })
@@ -13,6 +20,8 @@ export class FormComponent {
   @Input() title!: string;
   @Input() buttonLabel!: string;
   @Input() catName!: string;
+
+  @ViewChild('f') form!: NgForm;
 
   onSubmit(form: NgForm) {
     if (form.valid) {

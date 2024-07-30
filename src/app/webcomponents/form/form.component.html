@@ -1,18 +1,54 @@
 <div class="form-container">
-  <h2>{{ title }}</h2>
-  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+  <h2 id="formTitle">{{ title }}</h2>
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm" aria-labelledby="formTitle">
     <label for="name">Nome:</label>
-    <input type="text" id="name" name="name" required ngModel />
+    <input
+      type="text"
+      id="name"
+      name="name"
+      required
+      ngModel
+      #name="ngModel"
+      aria-required="true"
+      aria-describedby="nameError"
+    />
+    <div *ngIf="f.submitted && name.invalid" class="error" id="nameError">
+      O campo Nome é obrigatório.
+    </div>
 
     <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required ngModel />
+    <input
+      type="email"
+      id="email"
+      name="email"
+      required
+      ngModel
+      #email="ngModel"
+      aria-required="true"
+      aria-describedby="emailError"
+    />
+    <div *ngIf="f.submitted && email.invalid" class="error" id="emailError">
+      <div *ngIf="email.errors?.['required']">Campo E-mail é obrigatório.</div>
+    </div>
 
     <label for="pet">Pet escolhido:</label>
-    <input type="text" id="pet" name="pet" required [(ngModel)]="catName" />
-
+    <input
+      type="text"
+      id="pet"
+      name="pet"
+      required
+      [(ngModel)]="catName"
+      disabled
+    />
     <label for="message">Message:</label>
-    <textarea id="message" name="message" rows="4" required ngModel></textarea>
-
+    <textarea
+      id="message"
+      name="message"
+      rows="10"
+      required
+      ngModel
+      placeholder="Digite sua mensagem aqui..."
+    ></textarea>
     <button type="submit">{{ buttonLabel }}</button>
   </form>
 </div>
