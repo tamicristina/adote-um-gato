@@ -10,7 +10,7 @@
     margin-bottom: 1em;
     text-align: center;
     font-family: "Zain";
-    font-size: 36px;
+    font-size: 2rem;
   }
 
   form {
@@ -28,6 +28,10 @@
       padding: 0.5em;
       border: 1px solid #ccc;
       border-radius: 4px;
+      box-sizing: border-box;
+      width: 100%;
+      font-size: 1rem;
+
       &:focus {
         outline: none;
       }
@@ -57,5 +61,19 @@
         background: #ff6201;
       }
     }
+  }
+}
+
+@media (max-width: 600px) {
+  .form-container {
+    padding: 1em;
+  }
+
+  h2 {
+    font-size: 1.5rem; /* Menor tamanho de fonte em telas pequenas */
+  }
+
+  button {
+    font-size: 1rem; /* Ajuste no tamanho da fonte do botão */
   }
 }
