@@ -32,21 +32,22 @@ export class FormComponent implements OnInit {
 
   constructor(private fb: FormBuilder) {}
   @Output() formSubmitted = new EventEmitter<void>();
-
   @Input() title!: string;
   @Input() buttonLabel!: string;
   @Input() catName!: string;
-
   @ContentChildren(CustomInputComponent)
   customInputs!: QueryList<CustomInputComponent>;
 
   ngOnInit() {
-    this.form = this.fb.group({
-      name: ['', Validators.required],
-      email: ['', Validators.required],
-      pet: ['', Validators.required],
-      mensagem: ['', Validators.required],
-    });
+    this.form = this.fb.group(
+      {
+        name: [''],
+        email: [''],
+        pet: [''],
+        mensagem: [''],
+      },
+      { validators: Validators.compose([Validators.required]) }
+    );
   }
 
   onSubmit() {

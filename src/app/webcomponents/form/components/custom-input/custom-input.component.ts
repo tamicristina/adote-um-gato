@@ -23,11 +23,11 @@ import {
   ],
 })
 export class CustomInputComponent implements OnInit {
-  @Input() label: string = '';
-  @Input() type: string = 'text';
-  @Input() isTextarea: boolean = false;
-  @Input() value: string | null = null;
-  @Input() formControlName: string = '';
+  @Input() label!: string;
+  @Input() type!: string;
+  @Input() isTextarea?: boolean;
+  @Input() value!: string | null;
+  @Input() formControlName!: string;
 
   control: FormControl = new FormControl('', Validators.required);
 
