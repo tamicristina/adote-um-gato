@@ -11,18 +11,21 @@
       [type]="'text'"
       formControlName="name"
       [value]="''"
+      aria-label="Nome"
     ></app-custom-input>
     <app-custom-input
       label="E-mail:"
       [type]="'email'"
       formControlName="email"
       [value]="''"
+      aria-label="E-mail"
     ></app-custom-input>
     <app-custom-input
       label="Pet Escolhido:"
       [type]="'text'"
       [value]="selectedCatName"
       formControlName="pet"
+      aria-label="Pet Escolhido"
     ></app-custom-input>
     <app-custom-input
       label="Mensagem:"
@@ -30,12 +33,13 @@
       formControlName="mensagem"
       [isTextarea]="true"
       [value]="''"
+      aria-label="Mensagem"
     ></app-custom-input>
   </app-form>
 </ng-template>
 
 <div class="contact-feedback" *ngIf="showContactFeedback">
-  <img src="assets/images/happy_cat.png" />
+  <img src="assets/images/happy_cat.png" alt="Imagem de um gato feliz" />
 
   <span>
     <p>{{ message }}</p>

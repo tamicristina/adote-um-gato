@@ -4,8 +4,8 @@
   justify-content: center;
   align-items: center;
   margin-top: 30px;
-  padding: 1em; /* Adicionado para garantir algum espaçamento interno */
-  box-sizing: border-box; /* Inclui padding e border na largura total */
+  padding: 1em;
+  box-sizing: border-box;
 }
 
 .contact-feedback img {
@@ -16,12 +16,11 @@
 
 .contact-feedback p {
   white-space: nowrap;
-  color: #ff6201;
+  color: var(--orange);
   font-size: 32px;
   font-family: "Zain";
 }
 
-/* Responsividade para telas menores */
 @media (max-width: 600px) {
   .contact-feedback {
     margin-top: 20px;

@@ -19,7 +19,7 @@ export class InputService {
     inputEl.label = label;
     inputEl.type = type;
     inputEl.isTextarea = isTextarea;
-    // inputEl.value = value;
+    inputEl.value = value;
     inputEl.formControlName = formControlName;
 
     document.body.appendChild(inputEl);
