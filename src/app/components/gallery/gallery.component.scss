@@ -74,7 +74,7 @@ img {
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-auto-rows: 250px;
   grid-auto-flow: dense;
-  row-gap: 60px; /* Espaçamento vertical entre as linhas */
+  row-gap: 64px;
 }
 
 .polaroid {
@@ -143,4 +143,15 @@ img {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   height: 300px;
+}
+
+@media (max-width: 480px) {
+  .gallery-wrapper {
+    margin-left: 14px;
+  }
+}
+@media (max-width: 768px) {
+  .gallery-wrapper {
+    margin-left: 14px;
+  }
 }
