@@ -13,6 +13,7 @@ import { FormComponent } from '../../webcomponents/form/form.component';
 export class AdoptionComponent implements OnInit {
   message = '';
   selectedCatName: string | null = null;
+  showContactFeedback = false;
 
   constructor(private router: Router, private route: ActivatedRoute) {}
 
@@ -21,6 +22,7 @@ export class AdoptionComponent implements OnInit {
   }
 
   onFormSubmitted() {
+    this.showContactFeedback = true;
     this.message = 'Em breve entraremos em contato!';
     setTimeout(() => {
       this.router.navigate(['/']);

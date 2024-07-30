@@ -1,0 +1,35 @@
+.contact-feedback {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  padding: 1em; /* Adicionado para garantir algum espaçamento interno */
+  box-sizing: border-box; /* Inclui padding e border na largura total */
+}
+
+.contact-feedback img {
+  width: 300px;
+  max-width: 100%;
+  height: auto;
+}
+
+.contact-feedback p {
+  white-space: nowrap;
+  color: #ff6201;
+  font-size: 32px;
+  font-family: "Zain";
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 600px) {
+  .contact-feedback {
+    margin-top: 20px;
+    padding: 0.5em;
+  }
+
+  .contact-feedback p {
+    font-size: 1.5rem;
+    padding: 0 0.5em;
+  }
+}

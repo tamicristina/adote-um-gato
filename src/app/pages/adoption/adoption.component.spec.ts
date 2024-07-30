@@ -47,6 +47,9 @@ describe('AdoptionComponent', () => {
     expect(messageElement.textContent).toContain(
       'Em breve entraremos em contato!'
     );
+    const feedbackDiv =
+      fixture.debugElement.nativeElement.querySelector('.contact-feedback');
+    expect(feedbackDiv).toBeTruthy();
   });
 
   it('should navigate to the home page after 3 seconds', fakeAsync(() => {

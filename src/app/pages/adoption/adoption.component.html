@@ -1,6 +1,4 @@
-<div *ngIf="message; else formTemplate">
-  <p>{{ message }}</p>
-</div>
+<div *ngIf="message; else formTemplate"></div>
 <ng-template #formTemplate>
   <app-form
     title="Quero Adotar"
@@ -9,3 +7,11 @@
     catName="{{ selectedCatName }}"
   ></app-form>
 </ng-template>
+
+<div class="contact-feedback" *ngIf="showContactFeedback">
+  <img src="assets/images/happy_cat.png" />
+
+  <span>
+    <p>{{ message }}</p>
+  </span>
+</div>
