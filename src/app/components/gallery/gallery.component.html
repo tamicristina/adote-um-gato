@@ -45,7 +45,10 @@
           <p>{{ cat.details }}</p>
         </figcaption>
         <span class="button-container">
-          <button (click)="showForm()" class="adoption-button">
+          <button
+            (click)="showForm(cat.breeds[0].name || 'Desconhecida')"
+            class="adoption-button"
+          >
             Quero adotar
           </button>
         </span>

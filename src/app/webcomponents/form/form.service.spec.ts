@@ -1,19 +1,21 @@
 import { TestBed } from '@angular/core/testing';
 import { FormService } from './form.service';
-import { FormComponent } from './form.component';
 import { NgElement, WithProperties } from '@angular/elements';
-import { Injector } from '@angular/core';
+import { FormComponent } from './form.component';
 
 describe('FormService', () => {
   let service: FormService;
-  let injector: Injector;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
+      imports: [FormComponent],
       providers: [FormService],
     });
     service = TestBed.inject(FormService);
-    injector = TestBed.inject(Injector);
+  });
+
+  afterEach(() => {
+    TestBed.resetTestingModule();
   });
 
   it('should be created', () => {
@@ -21,14 +23,18 @@ describe('FormService', () => {
   });
 
   it('should create and append form element', () => {
-    spyOn(document.body, 'appendChild');
-
-    service.showAsElement('Test Title');
+    spyOn(document.body, 'appendChild').and.callThrough();
 
     const formEl = document.createElement('form-element') as NgElement &
       WithProperties<FormComponent>;
     formEl.title = 'Test Title';
+    formEl.buttonLabel = 'Submit';
 
+    spyOn(document, 'createElement').and.returnValue(formEl);
+
+    service.showAsElement('Test Title', 'Submit');
+
+    expect(document.createElement).toHaveBeenCalledWith('form-element');
     expect(document.body.appendChild).toHaveBeenCalledWith(formEl);
   });
 });

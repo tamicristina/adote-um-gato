@@ -4,9 +4,16 @@ import {
   TestBed,
   tick,
 } from '@angular/core/testing';
-
-import { AdoptionComponent } from './adoption.component';
 import { Router } from '@angular/router';
+import { of } from 'rxjs';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { AdoptionComponent } from './adoption.component';
+
+class MockActivatedRoute {
+  snapshot = {
+    queryParams: { catName: 'MockCatName' },
+  };
+}
 
 describe('AdoptionComponent', () => {
   let component: AdoptionComponent;
@@ -16,6 +23,10 @@ describe('AdoptionComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [AdoptionComponent],
+      providers: [
+        { provide: ActivatedRoute, useClass: MockActivatedRoute },
+        Router,
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(AdoptionComponent);
@@ -36,6 +47,9 @@ describe('AdoptionComponent', () => {
     expect(messageElement.textContent).toContain(
       'Em breve entraremos em contato!'
     );
+    const feedbackDiv =
+      fixture.debugElement.nativeElement.querySelector('.contact-feedback');
+    expect(feedbackDiv).toBeTruthy();
   });
 
   it('should navigate to the home page after 3 seconds', fakeAsync(() => {

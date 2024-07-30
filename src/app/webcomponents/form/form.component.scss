@@ -4,10 +4,13 @@
   padding: 1em;
   background: #f9f9f9;
   border-radius: 8px;
+  margin-top: 60px;
 
   h2 {
     margin-bottom: 1em;
     text-align: center;
+    font-family: "Zain";
+    font-size: 2rem;
   }
 
   form {
@@ -25,19 +28,52 @@
       padding: 0.5em;
       border: 1px solid #ccc;
       border-radius: 4px;
+      box-sizing: border-box;
+      width: 100%;
+      font-size: 1rem;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    input:invalid {
+      border: 1px solid red;
+    }
+
+    .error {
+      color: red;
+      font-size: 0.875em;
+      margin-top: 0.5em;
+      margin-bottom: 10px;
     }
 
     button {
       padding: 0.5em;
       border: none;
       border-radius: 4px;
-      background: #007bff;
+      background: #ff6201;
       color: white;
       cursor: pointer;
+      font-size: 18px;
 
       &:hover {
-        background: #0056b3;
+        background: #ff6201;
       }
     }
+  }
+}
+
+@media (max-width: 600px) {
+  .form-container {
+    padding: 1em;
+  }
+
+  h2 {
+    font-size: 1.5rem; /* Menor tamanho de fonte em telas pequenas */
+  }
+
+  button {
+    font-size: 1rem; /* Ajuste no tamanho da fonte do botão */
   }
 }
