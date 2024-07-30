@@ -17,9 +17,7 @@ export class AdoptionComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.route.queryParams.subscribe((params) => {
-      this.selectedCatName = params['catName'] || 'Desconhecido';
-    });
+    this.selectedCatName = this.route.snapshot.queryParams['catName'] || '';
   }
 
   onFormSubmitted() {
