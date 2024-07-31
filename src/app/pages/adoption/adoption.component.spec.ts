@@ -9,9 +9,10 @@ import { of } from 'rxjs';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { AdoptionComponent } from './adoption.component';
 
+//classe para simular o serviço ActivatedRoute
 class MockActivatedRoute {
   snapshot = {
-    queryParams: { catName: 'MockCatName' },
+    queryParams: { catName: 'MockCatName' }, //queryParams simula os parâmetros da URL.
   };
 }
 
@@ -28,11 +29,11 @@ describe('AdoptionComponent', () => {
         Router,
       ],
     }).compileComponents();
-
+    // Criando a instância do componente
     fixture = TestBed.createComponent(AdoptionComponent);
     component = fixture.componentInstance;
-    router = TestBed.inject(Router);
-    fixture.detectChanges();
+    router = TestBed.inject(Router); // Injeta o Router mockado
+    fixture.detectChanges(); // Detecta mudanças no componente
   });
 
   it('should create', () => {

@@ -10,26 +10,44 @@ import { GalleryComponent } from './gallery.component';
 import { By } from '@angular/platform-browser';
 import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
 import { CatsData } from '../../interfaces/cat.interface';
+import { Router } from '@angular/router';
 
 describe('GalleryComponent', () => {
   let component: GalleryComponent;
   let fixture: ComponentFixture<GalleryComponent>;
+  let router: Router;
+  let navigateSpy: jasmine.Spy;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
+        // Importando o componente Gallery e o módulo de logger
         GalleryComponent,
         LoggerModule.forRoot({
           level: NgxLoggerLevel.DEBUG,
           serverLogLevel: NgxLoggerLevel.ERROR,
         }),
       ],
-      providers: [provideHttpClient(), provideHttpClientTesting()],
+      providers: [
+        // Fornecendo clientes HTTP, testes HTTP e Router
+        provideHttpClient(),
+        provideHttpClientTesting(),
+        {
+          provide: Router,
+          useValue: {
+            navigate: jasmine.createSpy('navigate'),
+          }, // Mock do Router
+        },
+      ],
     }).compileComponents();
 
+    // Criando a instância do componente
     fixture = TestBed.createComponent(GalleryComponent);
     component = fixture.componentInstance;
+    router = TestBed.inject(Router);
+    navigateSpy = router.navigate as jasmine.Spy;
 
+    // Definindo dados mock de teste para o componente
     component.catsData = [
       {
         url: 'https://example.com/cat1.jpg',
@@ -53,7 +71,7 @@ describe('GalleryComponent', () => {
         height: 0,
       },
     ];
-
+    // Detectando mudanças no componente
     fixture.detectChanges();
   });
 
@@ -123,13 +141,25 @@ describe('GalleryComponent', () => {
 
   describe('when an error happens', () => {
     it('should display the error section ', () => {
-      component.error = true;
+      component.isError = true;
       fixture.detectChanges();
 
       const gridWrapper: HTMLElement = fixture.debugElement.query(
         By.css('.error-section')
       ).nativeElement;
       expect(gridWrapper).toBeTruthy();
+    });
+  });
+
+  it('should navigate to adoption form with the correct cat breed name', () => {
+    const catBreedName = 'Siamese';
+
+    component.navigateToCatAdoptionForm(catBreedName);
+
+    expect(component.selectedCatBreedName).toBe(catBreedName);
+
+    expect(navigateSpy).toHaveBeenCalledWith(['/adoption'], {
+      queryParams: { catBreedName },
     });
   });
 });

@@ -9,11 +9,13 @@ describe('HeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HeaderComponent],
+      imports: [HeaderComponent], // Importa o HeaderComponent para o módulo de teste
     }).compileComponents();
 
+    // Criando a instância do componente
     fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.componentInstance;
+    // Detectando mudanças no componente
     fixture.detectChanges();
   });
 

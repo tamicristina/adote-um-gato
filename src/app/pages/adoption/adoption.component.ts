@@ -12,19 +12,20 @@ import { CustomInputComponent } from '../../webcomponents/form/components/custom
   styleUrl: './adoption.component.scss',
 })
 export class AdoptionComponent implements OnInit {
-  message = '';
-  selectedCatName: string | null = null;
+  contactMessage = '';
+  selectedCatBreedName: string | null = null;
   showContactFeedback = false;
 
   constructor(private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.selectedCatName = this.route.snapshot.queryParams['catName'] || '';
+    this.selectedCatBreedName =
+      this.route.snapshot.queryParams['catBreedName'] || '';
   }
 
   onFormSubmitted() {
     this.showContactFeedback = true;
-    this.message = 'Em breve entraremos em contato!';
+    this.contactMessage = 'Em breve entraremos em contato!';
     setTimeout(() => {
       this.router.navigate(['/']);
     }, 3000);

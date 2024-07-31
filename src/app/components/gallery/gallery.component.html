@@ -1,9 +1,10 @@
 <div class="gallery-wrapper">
+  <!-- Seção de erro -->
   <section
     class="error-section"
     role="alert"
     aria-live="assertive"
-    *ngIf="error"
+    *ngIf="isError"
   >
     <div class="error-content-container">
       <figure>
@@ -19,12 +20,14 @@
       </span>
     </div>
   </section>
+  <!-- Loading -->
   <div *ngIf="isLoading" class="loading-container" aria-busy="true">
     <mat-spinner mode="indeterminate"> </mat-spinner>
     <span id="loading-description" class="visually-hidden"
       >Carregando conteúdo, por favor aguarde...</span
     >
   </div>
+  <!-- Seção principal com a renderização das imagens -->
   <main class="grid-wrapper" role="main">
     <div *ngFor="let cat of catsData; let i = index" class="polaroid">
       <figure>
@@ -46,7 +49,9 @@
         </figcaption>
         <span class="button-container">
           <button
-            (click)="showForm(cat.breeds[0].name || 'Desconhecida')"
+            (click)="
+              navigateToCatAdoptionForm(cat.breeds[0].name || 'Desconhecida')
+            "
             class="adoption-button"
           >
             Quero adotar
