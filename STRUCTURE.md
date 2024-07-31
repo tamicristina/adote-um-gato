@@ -73,7 +73,7 @@ A página inicial fornece uma visão geral da aplicação, nela é possível vis
 
 Caso ocorra algum tipo de erro com a requisicão o usuário terá um feedback visual descontraído informando sobre o ocorrido, conforme imagem abaixo:
 
-![imagem de um gato dentro de uma caixa](./src/assets/images/error-image.png)
+![imagem de um gato dentro de uma caixa](https://github.com/user-attachments/assets/9dc1504b-da1e-4f74-b1ed-6cac4564a6ba)
 
 ### Página Adoption
 

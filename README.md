@@ -12,7 +12,7 @@ O projeto adote um gato tem como objetivo facilitar a adoção de gatos, proporc
 
 - [Como o projeto está estruturado?](./STRUCTURE.md)
 
-##Requisitos para rodar o projeto
+## Requisitos para rodar o projeto
 
 ### Setup de ambiente:
 
