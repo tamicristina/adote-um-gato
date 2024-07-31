@@ -36,7 +36,7 @@ export class FormComponent implements OnInit {
   // Propriedades recebidas do componente pai
   @Input() title!: string;
   @Input() buttonLabel!: string;
-  @Input() catName!: string;
+  @Input() catBreedName!: string;
 
   // Consulta todos os CustomInputComponent filhos
   @ContentChildren(CustomInputComponent)
@@ -53,8 +53,8 @@ export class FormComponent implements OnInit {
       },
       { validators: Validators.compose([Validators.required]) }
     );
-    if (this.catName) {
-      this.form.patchValue({ pet: this.catName });
+    if (this.catBreedName) {
+      this.form.patchValue({ pet: this.catBreedName });
     }
   }
 

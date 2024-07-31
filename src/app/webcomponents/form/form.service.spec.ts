@@ -35,7 +35,7 @@ describe('FormService', () => {
 
     spyOn(document, 'createElement').and.returnValue(formEl);
 
-    service.showAsElement('Test Title', 'Submit');
+    service.showAsElement('Test Title', 'Submit', 'Cymric');
 
     expect(document.createElement).toHaveBeenCalledWith('form-element');
     expect(document.body.appendChild).toHaveBeenCalledWith(formEl);

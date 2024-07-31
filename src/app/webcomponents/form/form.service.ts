@@ -7,7 +7,7 @@ export class FormService {
   constructor() {}
 
   // Cria e adiciona um elemento de formulário ao DOM.
-  showAsElement(title: string, buttonLabel: string) {
+  showAsElement(title: string, buttonLabel: string, catBreedName: string) {
     // Cria o elemento personalizado 'form-element'
     const formEl: NgElement & WithProperties<FormComponent> =
       document.createElement('form-element') as any;
