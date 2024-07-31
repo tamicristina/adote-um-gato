@@ -31,23 +31,31 @@ export class FormComponent implements OnInit {
   });
 
   constructor(private fb: FormBuilder) {}
+  // Emite um evento quando o formulário é enviado
   @Output() formSubmitted = new EventEmitter<void>();
+  // Propriedades recebidas do componente pai
   @Input() title!: string;
   @Input() buttonLabel!: string;
   @Input() catName!: string;
+
+  // Consulta todos os CustomInputComponent filhos
   @ContentChildren(CustomInputComponent)
-  customInputs!: QueryList<CustomInputComponent>;
+  ariaLabel: string = this.buttonLabel;
 
   ngOnInit() {
+    // Inicializa o FormGroup com os controles necessários e validações
     this.form = this.fb.group(
       {
-        name: [''],
-        email: [''],
-        pet: [''],
-        mensagem: [''],
+        name: ['', Validators.required],
+        email: ['', [Validators.required, Validators.email]],
+        pet: ['', Validators.required],
+        message: ['', Validators.required],
       },
       { validators: Validators.compose([Validators.required]) }
     );
+    if (this.catName) {
+      this.form.patchValue({ pet: this.catName });
+    }
   }
 
   onSubmit() {

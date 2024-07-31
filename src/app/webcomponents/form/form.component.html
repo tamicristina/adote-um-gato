@@ -2,6 +2,8 @@
   <h2 id="formTitle">{{ title }}</h2>
   <form (ngSubmit)="onSubmit()" [formGroup]="form" aria-labelledby="formTitle">
     <ng-content></ng-content>
-    <button type="submit">{{ buttonLabel }}</button>
+    <button type="submit" [attr.aria-label]="ariaLabel">
+      {{ buttonLabel }}
+    </button>
   </form>
 </div>
