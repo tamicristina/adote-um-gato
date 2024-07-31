@@ -16,12 +16,17 @@ describe('CatApiService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [provideHttpClient(), provideHttpClientTesting()],
+      providers: [
+        // Fornecendo clientes HTTP e testes HTTP
+        provideHttpClient(),
+        provideHttpClientTesting(),
+      ],
     });
     service = TestBed.inject(CatApiService);
     httpMock = TestBed.inject(HttpTestingController);
   });
 
+  // Verifica se não há requests pendentes após cada teste
   afterEach(() => {
     httpMock.verify();
   });
@@ -31,6 +36,7 @@ describe('CatApiService', () => {
   });
 
   it('should fetch cat images with breed data', () => {
+    // Dados mockados que serão retornados pela API
     const mockResponse: CatsData[] = [
       {
         breeds: [

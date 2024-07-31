@@ -15,10 +15,12 @@ import { NGXLogger } from 'ngx-logger';
 })
 export class GalleryComponent implements OnInit {
   catsData: CatsData[] = [];
-  selectedCatName: string | null = null;
-  error = false;
+  // Raça do gato selecionado para exibir no formulário de adoção
+  selectedCatBreedName: string | null = null;
+  isError = false;
   isLoading = true;
 
+  // Descrições dos gatos
   catDetais: string[] = [
     'Este gatinho é super carinhoso e adora um colo quentinho!',
     'Um amigo brincalhão que vai fazer você rir com suas travessuras!',
@@ -52,21 +54,23 @@ export class GalleryComponent implements OnInit {
       next: (data) => {
         this.catsData = data;
         this.isLoading = false;
-
+        // Adiciona descrições ao objeto de dados dos gatos
         this.catsData.forEach((cat, index) => {
           cat.details = this.catDetais[index] || 'Detalhes não disponível';
         });
       },
       error: (err) => {
         this.isLoading = false;
-        this.error = true;
+        this.isError = true;
         this.logger.error('Falha na requisição', err);
       },
     });
   }
 
-  showForm(catName: string) {
-    this.selectedCatName = catName;
-    this.router.navigate(['/adoption'], { queryParams: { catName } });
+  navigateToCatAdoptionForm(catBreedName: string) {
+    // Atribui a raça do gato selecionado a variável
+    this.selectedCatBreedName = catBreedName;
+    // Navega para a página de adoção passando a raça via parâmetro de rota
+    this.router.navigate(['/adoption'], { queryParams: { catBreedName } });
   }
 }

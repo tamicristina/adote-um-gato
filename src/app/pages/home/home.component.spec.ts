@@ -20,7 +20,7 @@ describe('HomeComponent', () => {
       ],
       providers: [provideHttpClient(), provideHttpClientTesting()],
     }).compileComponents();
-
+    // Criando a instância do componente
     fixture = TestBed.createComponent(HomeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

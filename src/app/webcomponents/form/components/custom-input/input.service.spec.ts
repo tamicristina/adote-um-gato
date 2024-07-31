@@ -16,7 +16,9 @@ describe('InputService', () => {
   });
 
   afterEach(() => {
-    TestBed.resetTestingModule();
+    // Remove todos os elementos do formulário após cada teste
+    const formElements = document.querySelectorAll('form-element');
+    formElements.forEach((el) => el.remove());
   });
 
   it('should be created', () => {

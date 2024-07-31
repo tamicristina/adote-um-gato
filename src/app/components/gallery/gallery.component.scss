@@ -4,6 +4,16 @@
   padding: 0;
 }
 
+.gallery-wrapper {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin-top: 45px;
+}
+
 .error-section {
   display: flex;
   flex-direction: column;
@@ -28,16 +38,6 @@
   font-size: 20px;
 }
 
-.gallery-wrapper {
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  margin-top: 45px;
-}
-
 .loading-container {
   display: flex;
   justify-content: center;
@@ -59,13 +59,6 @@
 
 .mat-mdc-progress-spinner {
   --mdc-circular-progress-active-indicator-color: var(--orange);
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  vertical-align: middle;
-  display: inline-block;
 }
 
 .grid-wrapper {
@@ -101,6 +94,11 @@ img {
   object-fit: cover;
 }
 
+.description {
+  text-align: center;
+  font-size: 14px;
+}
+
 .description > figure {
   width: 100%;
   display: flex;
@@ -128,11 +126,6 @@ img {
 
 .description > figure > img {
   width: 20px;
-}
-
-.description {
-  text-align: center;
-  font-size: 14px;
 }
 
 @media (max-width: 480px) {

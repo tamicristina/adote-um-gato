@@ -1,47 +1,48 @@
-<div *ngIf="message; else formTemplate"></div>
+<!-- Exibe a mensagem de contato se estiver disponível, caso contrário, exibe o template do formulário -->
+<div class="contact-feedback" *ngIf="showContactFeedback; else formTemplate">
+  <img src="assets/images/happy_cat.png" alt="Imagem de um gato feliz" />
+
+  <span>
+    <p>{{ contactMessage }}</p>
+  </span>
+</div>
+
 <ng-template #formTemplate>
   <app-form
     title="Quero Adotar"
     buttonLabel="Enviar"
     (formSubmitted)="onFormSubmitted()"
-    catName="{{ selectedCatName }}"
+    catBreedName="{{ selectedCatBreedName }}"
   >
+    <!-- Input para o nome -->
     <app-custom-input
       label="Nome:"
       [type]="'text'"
       formControlName="name"
-      [value]="''"
       aria-label="Nome"
     ></app-custom-input>
+    <!-- Input para o email -->
     <app-custom-input
       label="E-mail:"
       [type]="'email'"
       formControlName="email"
-      [value]="''"
       aria-label="E-mail"
     ></app-custom-input>
+    <!-- Input para o pet escolhido -->
     <app-custom-input
       label="Pet Escolhido:"
       [type]="'text'"
-      [value]="selectedCatName"
+      [value]="selectedCatBreedName"
       formControlName="pet"
       aria-label="Pet Escolhido"
     ></app-custom-input>
+    <!-- Input para a mensagem -->
     <app-custom-input
       label="Mensagem:"
       [type]="'text'"
-      formControlName="mensagem"
+      formControlName="message"
       [isTextarea]="true"
-      [value]="''"
       aria-label="Mensagem"
     ></app-custom-input>
   </app-form>
 </ng-template>
-
-<div class="contact-feedback" *ngIf="showContactFeedback">
-  <img src="assets/images/happy_cat.png" alt="Imagem de um gato feliz" />
-
-  <span>
-    <p>{{ message }}</p>
-  </span>
-</div>
