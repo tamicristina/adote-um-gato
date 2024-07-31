@@ -53,7 +53,7 @@ export class CustomInputComponent implements OnInit, ControlValueAccessor {
   }
 
   onTouched: () => void = () => {};
-
+  //Registra uma função de callback que é chamada quando o componente é clicado.
   registerOnTouched(fn: any): void {
     this.onTouched = fn;
   }

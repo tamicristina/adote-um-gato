@@ -20,34 +20,49 @@ export class AppComponent {
   title = 'adote-um-gato';
 
   constructor(private injector: Injector, private logger: NGXLogger) {
+    // Log para indicar que o AppComponent foi inicializado
     this.logger.debug('AppComponent inicializado');
+    // Registra os custom elements
     this.registerFormComponent();
     this.registerInputComponent();
-
+    // Log para indicar que o AppComponent foi carregado com sucesso
     this.logger.info('AppComponent carregado com sucesso');
+
+    // Log para rastrear o título da aplicação
     this.logger.trace('A aplicação iniciou com título: ' + this.title);
+
+    // Log para indicar a execução do construtor do AppComponent
     this.logger.log('Execução do construtor do AppComponent');
   }
 
+  //Converte `FormComponent` em um custom element.
   private registerFormComponent() {
     try {
+      // Verifica se o elemento customizado 'form-element' já está registrado.
       if (!customElements.get('form-element')) {
         const FormElement = createCustomElement(FormComponent, {
           injector: this.injector,
         });
         customElements.define('form-element', FormElement);
+
+        // Log para indicar que o FormComponent foi registrado como web component
         this.logger.debug('FormComponent registrado como web component');
       }
 
       this.logger.debug(
+        // Log para indicar que o elemento customizado 'form-element' já estava registrado
         'O elemento customizado "form-element" já estava registrado'
       );
     } catch (error) {
+      // Log para capturar e relatar erros ao tentar registrar o FormComponent
       this.logger.error('Erro ao tentar registrar o FormComponent', error);
     }
   }
+
+  //Converte `CustomInputComponent` em um custom element.
   private registerInputComponent() {
     try {
+      // Verifica se o elemento customizado 'form-element' já está registrado.
       if (!customElements.get('input-element')) {
         const InputElement = createCustomElement(CustomInputComponent, {
           injector: this.injector,

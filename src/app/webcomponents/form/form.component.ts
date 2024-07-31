@@ -6,7 +6,6 @@ import {
   OnInit,
   Output,
   ContentChildren,
-  QueryList,
 } from '@angular/core';
 import {
   FormBuilder,
@@ -37,9 +36,7 @@ export class FormComponent implements OnInit {
   @Input() title!: string;
   @Input() buttonLabel!: string;
   @Input() catBreedName!: string;
-
-  // Consulta todos os CustomInputComponent filhos
-  @ContentChildren(CustomInputComponent)
+  @ContentChildren(CustomInputComponent) // Consulta todos os CustomInputComponent filhos
   ariaLabel: string = this.buttonLabel;
 
   ngOnInit() {
