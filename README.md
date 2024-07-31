@@ -6,7 +6,9 @@
 
 O projeto adote um gato tem como objetivo facilitar a adoção de gatos, proporcionando uma plataforma onde os usuários possam visualizar fotos de gatos disponíveis para adoção. Com uma interface intuitiva e agradável, os usuários poderão ver detalhes dos gatos, incluindo suas raças e descrições breves, e poderão entrar em contato demonstrando o interesse na adoção.
 
-## Documentação
+[Acesse o site clicando aqui](https://adote-um-gato.netlify.app/)
+
+## 📝 Documentação
 
 - [Como o projeto está estruturado?](./STRUCTURE.md)
 
@@ -26,7 +28,8 @@ Para executar a aplicação localmente, siga os passos abaixo:
 
 ```bash
   git clone git@github.com:tamicristina/adote-um-gato.git
-  cd adote-um-gato.git
+
+  cd adote-um-gato
 
 ```
 
