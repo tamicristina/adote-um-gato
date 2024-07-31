@@ -43,9 +43,6 @@ Este projeto foi gerado com [Angular CLI](https://github.com/angular/angular-cli
 
 - `.src/app/webcomponents`: Aqui ficam os webcomponentes utilizados para montar o formulário dentro da página `adoption`, nela você encontrará os componentes `<form>` sendo o componente mãe que recebe o `<custominput>` como componente filho. Cada componente tem seu próprio arquivo de `service` onde é feito a criação dos componentes, os registros deles como webcomponent você encontrará no arquivo `app.component.ts`
 
-📄 `app.routes`
-Aqui ficam as configurações de rotas do projeto.
-
 📂 `assets`
 
 - `.src/assets`: Aqui ficam todas as imagens e fontes utilizadas no projeto.
@@ -53,6 +50,8 @@ Aqui ficam as configurações de rotas do projeto.
 📂 `environments`
 
 - `.src/environments`: Arquivo responsável por guardar variávels de ambiente que são necessárias para a request na aplicação `The Cat API`.
+
+📄 `app.routes`
 
 - `.src/app/routes`: Arquivo com as configurações que o Angular usa para montar o sistema de roteamento.
 
