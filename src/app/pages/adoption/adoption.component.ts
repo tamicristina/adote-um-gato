@@ -23,6 +23,7 @@ export class AdoptionComponent implements OnInit {
       this.route.snapshot.queryParams['catBreedName'] || '';
   }
 
+  //Exibe a imagem de contato recebido quando o formulário é enviado
   onFormSubmitted() {
     this.showContactFeedback = true;
     this.contactMessage = 'Em breve entraremos em contato!';

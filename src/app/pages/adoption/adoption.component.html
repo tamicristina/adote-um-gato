@@ -19,7 +19,6 @@
       label="Nome:"
       [type]="'text'"
       formControlName="name"
-      [value]="''"
       aria-label="Nome"
     ></app-custom-input>
     <!-- Input para o email -->
@@ -27,7 +26,6 @@
       label="E-mail:"
       [type]="'email'"
       formControlName="email"
-      [value]="''"
       aria-label="E-mail"
     ></app-custom-input>
     <!-- Input para o pet escolhido -->
@@ -42,9 +40,8 @@
     <app-custom-input
       label="Mensagem:"
       [type]="'text'"
-      formControlName="mensagem"
+      formControlName="message"
       [isTextarea]="true"
-      [value]="''"
       aria-label="Mensagem"
     ></app-custom-input>
   </app-form>
